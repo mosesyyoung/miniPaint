@@ -24,6 +24,7 @@
     "test:security": "playwright test tests/e2e/security.spec.js",
     "test:performance": "playwright test tests/e2e/performance.spec.js",
     "test:a11y": "playwright test tests/e2e/accessibility.spec.js",
+    "test:i18n": "playwright test tests/e2e/i18n.spec.js",
     "fixtures:generate": "node tests/fixtures/generate-fixtures.mjs",
     "fixtures:validate": "node tests/fixtures/validate-fixtures.mjs"
   },
