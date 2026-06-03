@@ -681,10 +681,17 @@ class File_open_class {
 		};
 
 		//exif data
-		EXIF.getData(object, function () {
-			exif_data.exif = this.exifdata;
-			delete this.exifdata.thumbnail;
-		});
+		try {
+			EXIF.getData(object, function () {
+				exif_data.exif = this.exifdata || [];
+				if (this.exifdata && this.exifdata.thumbnail) {
+					delete this.exifdata.thumbnail;
+				}
+			});
+		}
+		catch (error) {
+			exif_data.exif = [];
+		}
 
 		//general
 		if (object.name != undefined)
