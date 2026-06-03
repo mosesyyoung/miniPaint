@@ -11,6 +11,8 @@ nbproject/
 .vscode
 /.project
 *.log
+/test-results/
+/playwright-report/
 
 /node_modules/
 *.js.ignore
