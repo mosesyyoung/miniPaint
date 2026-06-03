@@ -1,0 +1,46 @@
+{
+	"info": {
+		"width": 16,
+		"height": 16,
+		"about": "Legacy miniPaint fixture",
+		"date": "2026-06-03",
+		"version": "3.0.0",
+		"layer_active": 1,
+		"guides": []
+	},
+	"user_fonts": {},
+	"layers": [
+		{
+			"id": 1,
+			"parent_id": 0,
+			"name": "Legacy Rectangle",
+			"type": "rectangle",
+			"link": null,
+			"x": 0,
+			"y": 0,
+			"width": 10,
+			"width_original": 1,
+			"height": 10,
+			"height_original": 1,
+			"visible": true,
+			"is_vector": true,
+			"hide_selection_if_active": false,
+			"opacity": 100,
+			"order": 1,
+			"composition": "source-over",
+			"rotate": 0,
+			"data": null,
+			"params": {
+				"border": true,
+				"fill": true,
+				"border_color": "#000000",
+				"fill_color": "#ffffff"
+			},
+			"status": null,
+			"color": "#ff0000",
+			"filters": [],
+			"render_function": "rectangle"
+		}
+	],
+	"data": []
+}
