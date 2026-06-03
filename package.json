@@ -20,6 +20,7 @@
     "test:integration": "playwright test tests/e2e/integration.spec.js",
     "test:visual": "playwright test tests/e2e/visual.spec.js",
     "test:io": "playwright test tests/e2e/import-export.spec.js",
+    "test:cross-browser": "playwright test --config=playwright.cross-browser.config.js tests/e2e/cross-browser.spec.js",
     "fixtures:generate": "node tests/fixtures/generate-fixtures.mjs",
     "fixtures:validate": "node tests/fixtures/validate-fixtures.mjs"
   },
