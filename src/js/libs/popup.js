@@ -119,6 +119,7 @@ class Dialog_class {
 		this.el = document.createElement('div');
 		this.el.classList = 'popup';
 		this.el.role = 'dialog';
+		this.el.setAttribute('aria-modal', 'true');
 		document.querySelector('#popups').appendChild(this.el);
 		this.el.style.top = null;
 		this.el.style.left = null;
@@ -373,6 +374,8 @@ class Dialog_class {
 		html_params += this.generateParamsHtml();
 
 		this.el.innerHTML = template;
+		this.el.querySelector('[data-id="popup_title"]').id = 'popup_title_' + this.id;
+		this.el.setAttribute('aria-labelledby', 'popup_title_' + this.id);
 		this.el.querySelector('[data-id="pretitle_area"]').innerHTML = html_pretitle_area;
 		this.el.querySelector('[data-id="popup_title"]').innerHTML = this.title;
 		this.el.querySelector('[data-id="popup_comment"]').innerHTML = this.comment;
@@ -422,6 +425,11 @@ class Dialog_class {
 		if (this.onload) {
 			var params = this.get_params();
 			this.onload(params, this);
+		}
+
+		var focus_target = this.el.querySelector('input:not([type="hidden"]), select, textarea, button:not([data-id="popup_close"])');
+		if (focus_target) {
+			focus_target.focus();
 		}
 
 		//load preview

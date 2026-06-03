@@ -23,6 +23,7 @@
     "test:cross-browser": "playwright test --config=playwright.cross-browser.config.js tests/e2e/cross-browser.spec.js",
     "test:security": "playwright test tests/e2e/security.spec.js",
     "test:performance": "playwright test tests/e2e/performance.spec.js",
+    "test:a11y": "playwright test tests/e2e/accessibility.spec.js",
     "fixtures:generate": "node tests/fixtures/generate-fixtures.mjs",
     "fixtures:validate": "node tests/fixtures/validate-fixtures.mjs"
   },
@@ -33,6 +34,7 @@
   "homepage": "https://github.com/viliusle/miniPaint",
   "license": "MIT",
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@babel/core": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.5",
