@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
+import jpeg from 'jpeg-js';
+import { GifWriter } from 'omggif';
 
 const outDir = path.dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]:)/, '$1');
 
@@ -87,17 +89,26 @@ write('sample-large.png', png(3000, 2000, (x, y) => {
 	return [64, 128, 192, 255];
 }));
 
-// 1x1 red JPEG.
-write('sample-photo.jpg', Buffer.from(
-	'/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/2wBDAQICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAH/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAEFAqf/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAEDAQE/ASP/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oACAECAQE/ASP/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAY/Ap//xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oACAEBAAE/IV//2gAMAwEAAgADAAAAEP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QH//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEAAT8QH//Z',
-	'base64'
-));
+const jpgPixels = Buffer.alloc(4 * 4 * 4);
+for (let i = 0; i < jpgPixels.length; i += 4) {
+	jpgPixels[i] = 210;
+	jpgPixels[i + 1] = 40;
+	jpgPixels[i + 2] = 30;
+	jpgPixels[i + 3] = 255;
+}
+write('sample-photo.jpg', jpeg.encode({ data: jpgPixels, width: 4, height: 4 }, 90).data);
 
-// 2-frame 1x1 GIF: red then blue.
-write('sample-animated.gif', Buffer.from(
-	'R0lGODlhAQABAIEAAP8AAAAA/wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJAAEAAAAAACH5BAkAAQAAAAAALAAAAAABAAEAAAICRAEAOw==',
-	'base64'
-));
+const gifBuffer = Buffer.alloc(1024);
+const gifWriter = new GifWriter(gifBuffer, 2, 2, { loop: 0 });
+gifWriter.addFrame(0, 0, 2, 2, [0, 0, 0, 0], {
+	palette: [0xff0000, 0x0000ff],
+	delay: 10
+});
+gifWriter.addFrame(0, 0, 2, 2, [1, 1, 1, 1], {
+	palette: [0xff0000, 0x0000ff],
+	delay: 10
+});
+write('sample-animated.gif', gifBuffer.subarray(0, gifWriter.end()));
 
 const layerDataUrl = `data:image/png;base64,${redPng.toString('base64')}`;
 const baseLayer = {

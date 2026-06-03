@@ -19,6 +19,7 @@
     "test:unit:watch": "vitest",
     "test:integration": "playwright test tests/e2e/integration.spec.js",
     "test:visual": "playwright test tests/e2e/visual.spec.js",
+    "test:io": "playwright test tests/e2e/import-export.spec.js",
     "fixtures:generate": "node tests/fixtures/generate-fixtures.mjs",
     "fixtures:validate": "node tests/fixtures/validate-fixtures.mjs"
   },
@@ -37,7 +38,9 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "http-server": "^14.1.1",
+    "jpeg-js": "^0.4.4",
     "jsdom": "^29.1.1",
+    "omggif": "^1.0.10",
     "source-map-loader": "^3.0.0",
     "style-loader": "^2.0.0",
     "vitest": "^4.1.8",
