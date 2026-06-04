@@ -13,6 +13,7 @@ nbproject/
 *.log
 /test-results/
 /playwright-report/
+/test-reports/
 
 /node_modules/
 *.js.ignore
