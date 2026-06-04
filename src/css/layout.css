@@ -262,7 +262,7 @@ body .sp-preview{
 	margin-right: 5px;
 	overflow: hidden;
 	align-self: start;
-	width: 40px;
+	width: 70px;
 	overflow-y: auto;
 	max-height: 100%;
 }
@@ -270,8 +270,8 @@ body .sp-preview{
 	position: relative;
 	display:block;
 	background-color: var(--area-background-color);
-	height: 25px;
-	width: 30px;
+	height: 50px;
+	width: 60px;
 	margin: 5px 0 0 5px;
 	overflow: hidden;
 	cursor: pointer;
@@ -286,7 +286,7 @@ body .sp-preview{
 	filter: var(--menu-icons-filter);
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-size: 20px 20px;
+	background-size: 40px 40px;
 }
 .sidebar_left .item:hover{
 	background-color: var(--background-color-hover);
@@ -312,8 +312,8 @@ IMPORTANT: any new icon should also must be added on /service-worker.js + its ve
 .sidebar_left .fill:after{ background-image: url('images/icons/fill.svg'); }
 .sidebar_left .media:after{ background-image: url('images/icons/media.svg'); }
 .sidebar_left .shape:after{ background-image: url('images/icons/shape.svg'); }
-.sidebar_left .text:after{ background-image: url('images/icons/text.svg'); background-size: 16px auto; }
-.sidebar_left .gradient:after{ background-image: url('images/icons/gradient.png'); background-size: 18px 12px; filter: none; }
+.sidebar_left .text:after{ background-image: url('images/icons/text.svg'); background-size: 32px auto; }
+.sidebar_left .gradient:after{ background-image: url('images/icons/gradient.png'); background-size: 36px 24px; filter: none; }
 .sidebar_left .clone:after{ background-image: url('images/icons/clone.svg'); }
 .sidebar_left .crop:after{ background-image: url('images/icons/crop.svg'); }
 .sidebar_left .blur:after{ background-image: url('images/icons/blur.svg'); }
@@ -735,12 +735,12 @@ canvas{
 }
 @media screen and (max-height: 690px){
 	.sidebar_left{
-		width: 75px;
+		width: 135px;
 	}
 }
 @media screen and (max-height:450px){
 	.sidebar_left{
-		width: 88px;
+		width: 200px;
 	}
 }
 
