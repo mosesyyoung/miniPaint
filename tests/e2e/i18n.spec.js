@@ -115,4 +115,13 @@ test.describe('Internationalization tests', () => {
 		expect(result.bodyText).not.toContain('undefined');
 		expect(runtime.pageErrors).toEqual([]);
 	});
+
+	test('I18N-007 desaturate tool title translates to Chinese', async ({ page }) => {
+		const runtime = await openApp(page);
+		await selectChineseFromMenu(page);
+		await page.locator('#professional_tools').click();
+		await expect(page.locator('#desaturate')).toHaveAttribute('title', zh.Desaturate);
+		expect(zh.Desaturate).toBe('\u53bb\u8272');
+		expect(runtime.pageErrors).toEqual([]);
+	});
 });
