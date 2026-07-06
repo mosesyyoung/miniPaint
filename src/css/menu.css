@@ -198,5 +198,25 @@
 		height: 50px;
 		padding-left: 50px;
 		padding-right: 50px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		white-space: nowrap;
+	}
+	.main_menu > ul.menu_bar > li {
+		flex: 0 0 auto;
+	}
+	.main_menu > ul.menu_bar > li > a {
+		font-size: 12px;
+		padding: 0 10px;
+	}
+	.main_menu > ul.menu_dropdown {
+		max-width: calc(100vw - 10px);
+		max-height: calc(100vh - 50px);
+	}
+	.main_menu > ul.menu_dropdown > li > a {
+		height: 30px;
+		padding: 0 10px;
+		font-size: 12px;
+		line-height: 30px;
 	}
 }

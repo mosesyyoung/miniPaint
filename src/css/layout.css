@@ -744,6 +744,88 @@ canvas{
 	}
 }
 
+@media screen and (max-width:700px){
+	html,
+	body{
+		width: 100%;
+		max-width: 100%;
+		overflow: hidden;
+	}
+	.wrapper{
+		right: 0;
+		left: 0;
+		bottom: env(safe-area-inset-bottom, 0);
+		width: 100%;
+		max-width: 100%;
+	}
+	.submenu{
+		min-width: 0;
+		max-width: 100%;
+	}
+	.logo{
+		display: none;
+	}
+	.attributes{
+		flex: 1 1 auto;
+		width: auto;
+		min-width: 0;
+		margin-left: 5px;
+		padding: 3px 6px;
+	}
+	.attributes .item{
+		margin-right: 12px;
+	}
+	.undo_button{
+		flex: 0 0 50px;
+		margin-left: 0;
+	}
+	.sidebar_left{
+		left: -45px;
+		width: 40px;
+		max-width: calc(100vw - 10px);
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	.sidebar_left .item{
+		width: 30px;
+		height: 25px;
+	}
+	.sidebar_left .item:after{
+		background-size: 20px 20px;
+	}
+	.sidebar_left .text:after{
+		background-size: 16px auto;
+	}
+	.sidebar_left .gradient:after{
+		background-size: 18px 12px;
+	}
+	.sidebar_right{
+		width: min(200px, calc(100vw - 20px));
+		right: min(-210px, calc(-100vw + 10px));
+		max-width: calc(100vw - 20px);
+		overflow-x: hidden;
+	}
+	.middle_area,
+	.main_wrapper{
+		min-width: 0;
+		max-width: 100%;
+	}
+}
+
+@media screen and (max-width:700px) and (max-height:690px){
+	.sidebar_left{
+		left: -80px;
+		width: 75px;
+	}
+}
+
+@media screen and (max-width:700px) and (max-height:450px){
+	.sidebar_left{
+		left: -93px;
+		width: 88px;
+	}
+}
+
 /* ========== dialogs ======================================================= */
 
 #dialog_color_picker_group {
