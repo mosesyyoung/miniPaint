@@ -5,7 +5,9 @@ Online image editor lets you create and edit images using HTML5 technologies. No
 miniPaint operates directly in the browser. You can create images by pasting from the clipboard (ctrl+v) or uploading from the computer (_using menu or drag & drop_). Nothing will be sent to any server. Everything stays in your browser. 
 
 ## URL:
-**https://viliusle.github.io/miniPaint/**
+**https://bitmapai.net/minipaint/**
+
+(This fork mainly increases the toolbar icon size and menu font size for better usability.)
 
 ## Preview:
 ![miniPaint](https://raw.githubusercontent.com/viliusle/miniPaint/master/images/preview.gif)
